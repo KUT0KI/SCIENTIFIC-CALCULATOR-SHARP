@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scientific Calculator | Voice Edition</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ========================= -->
+    <!-- Calculator -->
+    <!-- ========================= -->
+
+    <main class="calculator">
+
+        <header class="header">
+
+            <div>
+
+                <h1>Scientific Calculator</h1>
+
+                <span>Voice Edition</span>
+
+            </div>
+
+            <button
+                id="theme-toggle"
+                class="icon-btn"
+                aria-label="Toggle Theme">
+
+                🌙
+
+            </button>
+
+        </header>
+
+        <!-- ========================= -->
+        <!-- Display -->
+        <!-- ========================= -->
+
+        <section class="display">
+
+            <div
+                id="expression"
+                class="expression"></div>
+
+            <input
+    id="display"
+    class="display-screen"
+    type="text"
+    value="0"
+    readonly
+    aria-label="Calculator display">
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Memory -->
+        <!-- ========================= -->
+
+        <section class="memory">
+
+            <button data-memory="mc">MC</button>
+
+            <button data-memory="mr">MR</button>
+
+            <button data-memory="mplus">M+</button>
+
+            <button data-memory="mminus">M−</button>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Buttons -->
+        <!-- ========================= -->
+
+        <section
+            id="button-grid"
+            class="button-grid">
+
+            <!-- Row 1 -->
+
+            <button data-action="clear" class="function">AC</button>
+
+            <button data-action="delete" class="function">⌫</button>
+
+            <button data-value="(">(</button>
+
+            <button data-value=")">)</button>
+
+            <!-- Row 2 -->
+
+            <button data-value="sin(">sin</button>
+
+            <button data-value="cos(">cos</button>
+
+            <button data-value="tan(">tan</button>
+
+            <button data-value="/">÷</button>
+
+            <!-- Row 3 -->
+
+            <button data-value="log(">log</button>
+
+            <button data-value="ln(">ln</button>
+
+            <button data-value="sqrt(">√</button>
+
+            <button data-value="*">×</button>
+
+            <!-- Row 4 -->
+
+            <button data-value="7">7</button>
+
+            <button data-value="8">8</button>
+
+            <button data-value="9">9</button>
+
+            <button data-value="-">−</button>
+
+            <!-- Row 5 -->
+
+            <button data-value="4">4</button>
+
+            <button data-value="5">5</button>
+
+            <button data-value="6">6</button>
+
+            <button data-value="+">+</button>
+
+            <!-- Row 6 -->
+
+            <button data-value="1">1</button>
+
+            <button data-value="2">2</button>
+
+            <button data-value="3">3</button>
+
+            <button data-action="square">x²</button>
+
+            <!-- Row 7 -->
+
+            <button data-value="0">0</button>
+
+            <button data-value=".">.</button>
+
+            <button data-action="factorial">x!</button>
+
+            <button data-action="equals" class="equals">=</button>
+
+            <!-- Row 8 -->
+
+            <button data-action="power">xʸ</button>
+
+            <button data-value="%">%</button>
+
+            <button data-value="PI">π</button>
+
+            <button data-value="E">e</button>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- Bottom Controls -->
+        <!-- ========================= -->
+
+        <section class="controls">
+
+            <button id="speak-btn">
+
+                🔊 Speak
+
+            </button>
+
+            <button id="copy-btn">
+
+                📋 Copy
+
+            </button>
+
+            <button id="download-btn">
+
+                📥 Export
+
+            </button>
+
+            <button id="history-toggle">
+
+                📜 History
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <!-- ========================= -->
+    <!-- History -->
+    <!-- ========================= -->
+
+    <aside
+        id="history-panel"
+        class="history">
+
+        <header class="history-top">
+
+            <h2>History</h2>
+
+            <button id="clear-history">
+
+                Clear
+
+            </button>
+
+        </header>
+
+        <ul id="history-list">
+
+        </ul>
+
+    </aside>
+
+</div>
+
+<!-- ========================= -->
+<!-- JavaScript Modules -->
+<!-- ========================= -->
+<div
+    id="status"
+    class="sr-only"
+    aria-live="polite">
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>

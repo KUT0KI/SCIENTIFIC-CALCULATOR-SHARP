@@ -1,0 +1,890 @@
+/* =====================================================
+   SCIENTIFIC CALCULATOR
+   STYLE.CSS
+   VERSION 3.0
+===================================================== */
+
+/* ===========================
+   RESET
+=========================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    min-height:100vh;
+
+    background:
+        radial-gradient(circle at top,#2563eb 0%,transparent 35%),
+        linear-gradient(135deg,#020617,#0f172a,#111827);
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:35px;
+
+}
+
+/* ===========================
+   VARIABLES
+=========================== */
+
+:root{
+
+    --primary:#3b82f6;
+
+    --secondary:#8b5cf6;
+
+    --success:#10b981;
+
+    --danger:#ef4444;
+
+    --glass:rgba(255,255,255,.08);
+
+    --glass2:rgba(255,255,255,.05);
+
+    --border:rgba(255,255,255,.12);
+
+    --text:#ffffff;
+
+    --muted:#94a3b8;
+
+    --radius:22px;
+
+    --shadow:
+        0 18px 45px rgba(0,0,0,.35);
+
+    --transition:.25s ease;
+
+}
+
+/* ===========================
+   APP LAYOUT
+=========================== */
+
+.app{
+
+    width:100%;
+
+    max-width:1250px;
+
+    display:grid;
+
+    grid-template-columns:
+        430px
+        320px;
+
+    gap:28px;
+
+    justify-content:center;
+
+    align-items:start;
+
+}
+
+/* ===========================
+   CALCULATOR
+=========================== */
+
+.calculator{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:22px;
+
+}
+
+.header h1{
+
+    font-size:1.4rem;
+
+    font-weight:600;
+
+}
+
+.header span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+}
+
+.icon-btn{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:var(--glass2);
+
+    color:var(--text);
+
+    font-size:1.1rem;
+
+    transition:var(--transition);
+
+}
+
+.icon-btn:hover{
+
+    transform:
+        rotate(15deg)
+        scale(1.05);
+
+    background:var(--primary);
+
+}
+
+/* ===========================
+   DISPLAY
+=========================== */
+
+.display{
+
+    background:#020b18;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.expression{
+
+    min-height:22px;
+
+    color:var(--muted);
+
+    text-align:right;
+
+    margin-bottom:10px;
+
+    word-break:break-word;
+
+    font-size:.9rem;
+
+}
+
+.display-screen{
+
+    width:100%;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    color:white;
+
+    text-align:right;
+
+    font-size:2rem;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   MEMORY
+=========================== */
+
+.memory{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
+
+.memory button{
+
+    height:46px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:var(--glass2);
+
+    color:var(--text);
+
+    font-weight:500;
+
+    transition:var(--transition);
+
+}
+
+.memory button:hover{
+
+    background:var(--secondary);
+
+    transform:translateY(-2px);
+
+}
+/* ===========================
+   BUTTON GRID
+=========================== */
+
+.button-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+/* ===========================
+   DEFAULT BUTTON
+=========================== */
+
+.button-grid button{
+
+    height:62px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:var(--glass2);
+
+    color:var(--text);
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:
+        transform .18s ease,
+        background .18s ease,
+        box-shadow .18s ease,
+        color .18s ease;
+
+}
+
+/* Hover */
+
+.button-grid button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 18px rgba(0,0,0,.18);
+
+}
+
+/* Click */
+
+.button-grid button:active{
+
+    transform:scale(.96);
+
+}
+
+/* Keyboard Accessibility */
+
+.button-grid button:focus-visible{
+
+    outline:2px solid var(--primary);
+
+    outline-offset:3px;
+
+}
+
+/* ===========================
+   FUNCTION BUTTONS
+=========================== */
+
+.button-grid .function{
+
+    background:rgba(139,92,246,.18);
+
+    color:#d8b4fe;
+
+}
+
+.button-grid .function:hover{
+
+    background:var(--secondary);
+
+    color:white;
+
+}
+
+/* ===========================
+   OPERATOR BUTTONS
+=========================== */
+
+.button-grid button[data-value="/"],
+.button-grid button[data-value="*"],
+.button-grid button[data-value="-"],
+.button-grid button[data-value="+"]{
+
+    background:rgba(59,130,246,.18);
+
+    color:#bfdbfe;
+
+}
+
+.button-grid button[data-value="/"]:hover,
+.button-grid button[data-value="*"]:hover,
+.button-grid button[data-value="-"]:hover,
+.button-grid button[data-value="+"]:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ===========================
+   EQUALS BUTTON
+=========================== */
+
+.equals{
+
+    background:var(--success) !important;
+
+    color:white !important;
+
+    font-size:1.35rem !important;
+
+    letter-spacing:.5px;
+
+}
+
+.equals:hover{
+
+    filter:brightness(1.08);
+
+}
+
+/* ===========================
+   SPECIAL BUTTONS
+=========================== */
+
+.button-grid button[data-action="square"],
+.button-grid button[data-action="power"],
+.button-grid button[data-action="factorial"]{
+
+    background:rgba(16,185,129,.16);
+
+    color:#a7f3d0;
+
+}
+
+.button-grid button[data-action="square"]:hover,
+.button-grid button[data-action="power"]:hover,
+.button-grid button[data-action="factorial"]:hover{
+
+    background:var(--success);
+
+    color:white;
+
+}
+
+/* ===========================
+   PI & E
+=========================== */
+
+.button-grid button[data-value="PI"],
+.button-grid button[data-value="E"]{
+
+    background:rgba(245,158,11,.16);
+
+    color:#fde68a;
+
+}
+
+.button-grid button[data-value="PI"]:hover,
+.button-grid button[data-value="E"]:hover{
+
+    background:#f59e0b;
+
+    color:white;
+
+}
+/* ===========================
+   CONTROLS
+=========================== */
+
+.controls{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:22px;
+
+}
+
+.controls button{
+
+    height:50px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:.95rem;
+
+    background:var(--glass2);
+
+    color:var(--text);
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+.controls button:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(59,130,246,.25);
+
+}
+
+.controls button:active{
+
+    transform:scale(.97);
+
+}
+
+.controls button:focus-visible{
+
+    outline:2px solid white;
+
+    outline-offset:3px;
+
+}
+
+/* ===========================
+   HISTORY PANEL
+=========================== */
+
+.history{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:22px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+
+    flex-direction:column;
+
+    max-height:760px;
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+   HISTORY HEADER
+=========================== */
+
+.history-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.history-top h2{
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+}
+
+.history-top button{
+
+    border:none;
+
+    padding:9px 14px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    background:var(--danger);
+
+    color:white;
+
+    transition:.2s;
+
+}
+
+.history-top button:hover{
+
+    filter:brightness(1.08);
+
+}
+
+/* ===========================
+   HISTORY LIST
+=========================== */
+
+#history-list{
+
+    flex:1;
+
+    list-style:none;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+#history-list li{
+
+    background:var(--glass2);
+
+    border-left:4px solid var(--primary);
+
+    border-radius:14px;
+
+    padding:14px;
+
+    line-height:1.6;
+
+    animation:fadeUp .25s ease;
+
+    word-break:break-word;
+
+}
+
+#history-list strong{
+
+    color:#60a5fa;
+
+}
+
+/* ===========================
+   CUSTOM SCROLLBAR
+=========================== */
+
+#history-list::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+#history-list::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:30px;
+
+}
+
+#history-list::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+/* =====================================================
+   RESPONSIVE LAYOUT
+===================================================== */
+
+@media (max-width: 1024px){
+
+    .app{
+
+        grid-template-columns:1fr;
+
+        max-width:520px;
+
+    }
+
+    .history{
+
+        width:100%;
+
+        max-height:320px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+
+        padding:20px;
+
+    }
+
+    .calculator{
+
+        padding:20px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+
+        padding:12px;
+
+    }
+
+    .calculator{
+
+        padding:16px;
+
+        border-radius:18px;
+
+    }
+
+    .header h1{
+
+        font-size:1.1rem;
+
+    }
+
+    .header span{
+
+        font-size:.8rem;
+
+    }
+
+    .display-screen{
+
+        font-size:1.6rem;
+
+    }
+
+    .button-grid button{
+
+        height:54px;
+
+        font-size:.92rem;
+
+    }
+
+    .memory button{
+
+        height:42px;
+
+        font-size:.85rem;
+
+    }
+
+    .controls{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(.95);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+.calculator{
+
+    animation:fadeUp .45s ease;
+
+}
+
+.history{
+
+    animation:fadeUp .55s ease;
+
+}
+
+.display-screen{
+
+    animation:pop .25s ease;
+
+}
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+body.light{
+
+    background:#eef3fb;
+
+    color:#111827;
+
+}
+
+body.light .calculator,
+body.light .history{
+
+    background:#ffffff;
+
+    border:1px solid #dbe4f0;
+
+}
+
+body.light .display{
+
+    background:#edf2fa;
+
+}
+
+body.light .display-screen{
+
+    color:#111827;
+
+}
+
+body.light .expression{
+
+    color:#64748b;
+
+}
+
+body.light .icon-btn,
+body.light .memory button,
+body.light .button-grid button,
+body.light .controls button{
+
+    color:#111827;
+
+}
+
+body.light #history-list li{
+
+    background:#f7f9fc;
+
+}
