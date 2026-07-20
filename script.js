@@ -788,43 +788,58 @@ function speakResult(){
 
     if(!("speechSynthesis" in window)){
 
-        alert("Speech synthesis is not supported.");
+        alert("Speech synthesis is not supported on this browser.");
 
         return;
 
     }
 
-    speech.cancel();
+    window.speechSynthesis.cancel();
 
-    utterance = new SpeechSynthesisUtterance(
+    const text = display.value.trim();
 
-        display.value
+    if(text === "" || text === "0"){
 
-    );
+        alert("Nothing to speak.");
 
+        return;
+
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.lang = "en-US";
     utterance.rate = 1;
-
     utterance.pitch = 1;
-
     utterance.volume = 1;
 
-    utterance.onstart = ()=>{
+    utterance.onstart = () => {
 
         state.speaking = true;
-
         speakBtn.textContent = "⏹ Stop";
 
     };
 
-    utterance.onend = ()=>{
+    utterance.onend = () => {
+
+        state.speaking = false;
+        speakBtn.textContent = "🔊 Speak";
+
+    };
+
+    utterance.onerror = (event) => {
+
+        console.error("Speech Error:", event);
 
         state.speaking = false;
 
         speakBtn.textContent = "🔊 Speak";
 
+        alert("Unable to play speech.");
+
     };
 
-    speech.speak(utterance);
+    window.speechSynthesis.speak(utterance);
 
 }
 
